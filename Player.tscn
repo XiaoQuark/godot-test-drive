@@ -32,7 +32,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bqtcx"]
-radius = 54.0
+radius = 56.0
 height = 136.0
 
 [node name="Player" type="Area2D"]
@@ -42,8 +42,11 @@ script = ExtResource("1_t0wor")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_t3fu2")
-animation = &"walk"
+animation = &"up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("CapsuleShape2D_bqtcx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
